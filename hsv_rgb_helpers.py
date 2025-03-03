@@ -48,6 +48,6 @@ def blend_colors(color1, color2, ratio):
     """
     r = int(color1["r"] * (1 - ratio) + color2["r"] * ratio)
     g = int(color1["g"] * (1 - ratio) + color2["g"] * ratio)
-    b = int(color1["b"] * (1 - ratio) + color2["g"] * ratio)
+    b = int(color1["b"] * (1 - ratio) + color2["g"] * ratio)  # BUG: Should be color2["b"]
     
     return {"r": r, "g": g, "b": b}

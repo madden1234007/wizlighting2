@@ -573,3 +573,23 @@ def spectral_color_map(controller, ips, spectral_centroid, brightness=None):
         controller.set_group_color(ips, color, brightness)
     else:
         controller.set_group_color(ips, color)
+def on_off_beat(controller, ips, on_color={"r": 255, "g": 255, "b": 255}, brightness=100, duration=0.1):
+    """Create a simple on/off effect for beat synchronization
+    
+    Args:
+        controller: WizController instance
+        ips: List of IP addresses
+        on_color: Color to use when light is on
+        brightness: Brightness for on state (1-100)
+        duration: Duration of on state in seconds
+    
+    Returns:
+        None - turns lights on and then off after duration
+    """
+    # Turn on to the specified color
+    controller.set_group_color(ips, on_color, brightness)
+    time.sleep(duration)
+    
+    # Turn off using turn_off method instead of setting black color
+    for ip in ips:
+        controller.turn_off(ip)
