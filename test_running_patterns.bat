@@ -1,0 +1,2 @@
+cd C:\Users\cindy\Downloads\Wiz\wizlighting
+python -c "from wiz_patterns import rainbow_cycle; from wiz_core import WizController; from wiz_config import get_light_group; rainbow_cycle(WizController(), get_light_group('dining'), speed=0.1)"
